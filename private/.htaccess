@@ -1,0 +1,39 @@
+AuthType Basic
+AuthName "Password Protected Area"
+
+
+#
+# LDAP Authentication
+#
+
+#AuthBasicProvider ldap
+#AuthLDAPURL "ldap://ldap.pa.ucla.edu/dc=pa,dc=ucla,dc=edu?uid?sub"
+#AuthLDAPGroupAttribute member
+
+# Enable this to require membership to the Grads group for access
+#Require ldap-group ou=web-ctapsct,ou=Website,ou=Group,dc=pa,dc=ucla,dc=edu
+
+# Enable this to allow any LDAP account access
+#Require valid-user
+
+#
+# END LDAP Authentication
+#
+
+
+
+#
+# Local htpasswd
+#
+
+AuthBasicProvider file
+#AuthUserFile "/web/cta-psct.physics.ucla.edu/conf/htpasswd"
+AuthUserFile "/var/www/htpasswd"
+Require valid-user
+
+#
+# ENDLocal htpasswd
+#
+
+
+
